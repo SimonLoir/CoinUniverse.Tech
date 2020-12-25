@@ -11,7 +11,6 @@ class DiscordBot {
 
         client.on('message', (msg) => {
             if (msg.author.bot) return;
-            console.log('d');
             if (msg.content.indexOf('test') >= 0) {
                 this.sendMessage(
                     'BTC price alert',
@@ -29,11 +28,8 @@ class DiscordBot {
             (c) => c.id == '791703852205735937'
         );
         const embed = new Discord.MessageEmbed()
-            // Set the title of the field
             .setTitle(title)
-            // Set the color of the embed
             .setColor(color)
-            // Set the main content of the embed
             .setDescription(message);
         //@ts-ignore
         channel.send(embed);

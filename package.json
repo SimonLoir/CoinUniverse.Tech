@@ -6,7 +6,7 @@
     "scripts": {
         "dev": "webpack",
         "prod": "webpack -p",
-        "server": "pm2 start app.js --no-vizion --watch --ignore-watch=private",
+        "server": "pm2 start app.js --no-vizion --watch --ignore-watch=private/**/*,\".git/**/*\",node_modules/**/*",
         "logs": "pm2 logs",
         "server-end": "pm2 stop app.js"
     },
