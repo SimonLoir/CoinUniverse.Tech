@@ -6,6 +6,7 @@ import * as express from 'express';
 import * as cors from 'cors';
 import * as bodyParser from 'body-parser';
 import { bot } from './bot';
+import { watcher } from './watcher';
 
 const app = express();
 
@@ -18,3 +19,4 @@ app.use('/', express.static('./public/'));
 app.listen(8080);
 
 bot;
+watcher;

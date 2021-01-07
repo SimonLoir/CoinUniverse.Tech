@@ -1,4 +1,5 @@
 import * as Discord from 'discord.js';
+import { watcher } from '../watcher';
 class DiscordBot {
     private client: Discord.Client;
     constructor() {
@@ -37,3 +38,16 @@ class DiscordBot {
 }
 
 export var bot = new DiscordBot();
+
+setInterval(() => {
+    const pairs = watcher.getPairs('ZIL_USDT');
+    const names = watcher.getNames();
+    let message = `Here is a quick recap of the ZIL price on the following exchanges :`;
+    for (let index = 0; index < pairs.length; index++) {
+        const pair_value = pairs[index];
+        const pair_exchange = names[index];
+        message += `\n${pair_exchange} : ${pair_value}$`;
+    }
+    console.log(message);
+    //bot.sendMessage('ZILLLLL', message, 0x00ff00);
+}, 15000);
